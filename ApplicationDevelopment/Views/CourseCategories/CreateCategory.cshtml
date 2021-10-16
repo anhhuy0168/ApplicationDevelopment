@@ -1,0 +1,27 @@
+﻿@model ApplicationDevelopment.Models.CourseCategory
+@{
+    ViewBag.Title = "CreateCategory";
+}
+
+<div class="page-header">
+    <h2 style="margin-bottom: 10px">Create Category</h2>
+</div>
+
+@Html.AntiForgeryToken()
+@using (Html.BeginForm("CreateCategory", "CourseCategories", FormMethod.Post))
+{
+    @Html.ValidationSummary(false, "", new { @class = "text-danger", @style = "margin-bottom:28px;" })
+    <div class="form-group">
+        <label>Name</label>
+        @Html.TextBoxFor(n => n.Name, "", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        @Html.TextBoxFor(d => d.Description, "", new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+}
+
+<div class="form-group" style="margin-top: 45px">
+    @Html.ActionLink("Back to Course Category List", "Index", "CourseCategories", new { @class = "btn btn-success" })
+</div>

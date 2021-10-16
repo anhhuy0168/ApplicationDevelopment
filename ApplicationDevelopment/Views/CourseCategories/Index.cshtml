@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ApplicationDevelopment.Models.CourseCategory>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="page-header">
+    <h2 style="margin-bottom: 15px">List Of Categories</h2>
+</div>
+
+<div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+    <div class="form-group">
+        @Html.ActionLink("Create a New Category", "CreateCategory", "CourseCategories", new { @class = "btn btn-primary" })
+    </div>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Category Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in @Model)
+        {
+            <tr>
+                <th style="vertical-align: middle" scope="row">@item.Name</th>
+                <td style="vertical-align: middle">@item.Description</td>
+                <td>
+                    @Html.ActionLink("Edit", "EditCategory", "CourseCategories", new { id = @item.Id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Delete", "DeleteCategory", "CourseCategories", new { id = @item.Id }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
