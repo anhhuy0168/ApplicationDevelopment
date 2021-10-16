@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ApplicationDevelopment.Models.Course>
+@{
+    ViewBag.Title = "Courses";
+}
+
+<div class="page-header">
+    <h2 style="margin-bottom: 15px">List Of Courses</h2>
+</div>
+
+<div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+    <div class="form-group">
+        @Html.ActionLink("Create a New Course", "CourseCreate", "Courses", new { @class = "btn btn-primary" })
+    </div>
+
+    @using (Html.BeginForm("Index", "Todos", FormMethod.Get))
+    {
+        <div class="form-inline">
+            @Html.TextBox("searchString", null, new { @class = "form-control" })
+            <button type="Submit" class="btn btn-primary">Search</button>
+        </div>
+    }
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Course Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Category</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in @Model)
+        {
+            <tr>
+                <th style="vertical-align: middle" scope="row">@item.Name</th>
+                <td style="vertical-align: middle">@item.Description</td>
+                <td style="vertical-align: middle">@item.CourseCategory.Name</td>
+                <td>
+                    @Html.ActionLink("Edit Course", "CourseEdit", "Courses", new { id = @item.CourseID }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Details", "Details", "Todos", new { id = @item.CourseID }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Delete Course", "CourseDelete", "Courses", new { id = @item.CourseID }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

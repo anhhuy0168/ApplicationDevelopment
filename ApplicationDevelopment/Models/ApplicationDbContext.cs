@@ -10,6 +10,7 @@ namespace ApplicationDevelopment.Models
         {
         }
         public DbSet<CourseCategory> CourseCategories { get; set; }
+        public DbSet<Course> Courses { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
