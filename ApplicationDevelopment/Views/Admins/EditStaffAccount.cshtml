@@ -1,0 +1,37 @@
+﻿@model ApplicationDevelopment.Models.Staff
+@{
+    ViewBag.Title = "Edit Staff Account";
+}
+
+<h2 style="margin-top: 45px; margin-bottom: 35px;">Edit Staff Account</h2>
+
+
+
+@using (Html.BeginForm("EditStaffAccount", "Admins", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(i => i.StaffId)
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(u => u.FullName)
+        @Html.EditorFor(u => u.FullName, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(a => a.Age)
+        @Html.EditorFor(a => a.Age, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(u => u.Address)
+        @Html.EditorFor(u => u.Address, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Edit</button>
+}
+
+<div style="display: flex; justify-content: space-between; margin-bottom: 10px; margin-top: 35px;">
+    <div class="form-group">
+        @Html.ActionLink("Back to Staff List ", "IndexStaff", "Admins", new { @class = "btn btn-primary" })
+    </div>
+</div>

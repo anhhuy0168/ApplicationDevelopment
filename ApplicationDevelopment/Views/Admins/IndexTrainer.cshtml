@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ApplicationDevelopment.Models.Trainer>
+@{
+    ViewBag.Title = "Index Trainer";
+}
+
+<h2 style="margin-bottom: 15px; text-align: center; margin-top: 45px;">List Of Trainer Account</h2>
+
+
+<div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+    <div class="form-group">
+        @Html.ActionLink("Create a New Trainer", "CreateTrainerAccount", "Admins", new { @class = "btn btn-primary" })
+    </div>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Trainer Email</th>
+            <th scope="col">Trainer FullName</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in @Model)
+        {
+            <tr>
+                <th style="vertical-align: middle" scope="row" class="col-sm-3">@item.User.Email</th>
+                <td style="vertical-align: middle" class="col-sm-3">@item.FullName</td>
+                <td>
+                    @Html.ActionLink("Edit Trainer Info", "EditTrainerAccount", "Admins", new { id = @item.TrainerId }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Delete Trainer", "DeleteTrainerAccount", "Admins", new { id = @item.TrainerId }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Password Reset", "TrainerPasswordReset", "Admins", new { id = @item.TrainerId }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Trainer Details", "TrainerInfoDetails", "Admins", new { id = @item.TrainerId }, new { @class = "btn btn-info" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

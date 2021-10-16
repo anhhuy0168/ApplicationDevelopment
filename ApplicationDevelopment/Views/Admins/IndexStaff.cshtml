@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ApplicationDevelopment.Models.Staff>
+@{
+    ViewBag.Title = "Index Staff";
+}
+
+<h2 style="margin-bottom: 15px; text-align: center; margin-top: 45px;">List Of Staff Account</h2>
+
+
+<div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+    <div class="form-group">
+        @Html.ActionLink("Create a New Staff", "CreateStaffAccount", "Admins", new { @class = "btn btn-primary" })
+    </div>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Staff Email</th>
+            <th scope="col">Staff FullName</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in @Model)
+        {
+            <tr>
+                <th style="vertical-align: middle" scope="row" class="col-sm-3">@item.User.Email</th>
+                <td style="vertical-align: middle" class="col-sm-3">@item.FullName</td>
+                <td>
+                    @Html.ActionLink("Edit Staff Info", "EditStaffAccount", "Admins", new { id = @item.StaffId }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Delete Staff", "DeleteStaffAccount", "Admins", new { id = @item.StaffId }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Password Reset", "StaffPasswordReset", "Admins", new { id = @item.StaffId }, new { @class = "btn btn-success" })
+                    @Html.ActionLink("Staff Details", "StaffInfoDetails", "Admins", new { id = @item.StaffId }, new { @class = "btn btn-info" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

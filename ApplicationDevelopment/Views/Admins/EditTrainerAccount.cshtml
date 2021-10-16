@@ -1,0 +1,41 @@
+﻿@model ApplicationDevelopment.Models.Trainer
+@{
+    ViewBag.Title = "Edit Trainer Account";
+}
+
+<h2 style="margin-top: 45px; margin-bottom: 35px;">Edit Trainer Account</h2>
+
+@using (Html.BeginForm("EditTrainerAccount", "Admins", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(i => i.TrainerId)
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(u => u.FullName)
+        @Html.EditorFor(u => u.FullName, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(a => a.Age)
+        @Html.EditorFor(a => a.Age, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(u => u.Address)
+        @Html.EditorFor(u => u.Address, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(u => u.Specialty)
+        @Html.EditorFor(u => u.Specialty, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Edit</button>
+}
+
+
+<div style="display: flex; justify-content: space-between; margin-bottom: 10px; margin-top: 35px;">
+    <div class="form-group">
+        @Html.ActionLink("Back to Trainer List", "IndexTrainer", "Admins", new { @class = "btn btn-primary" })
+    </div>
+</div>
