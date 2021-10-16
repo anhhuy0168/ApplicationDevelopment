@@ -4,9 +4,9 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 
-namespace FPT_Management_System.Controllers
+namespace ApplicationDevelopment.Controllers
 {
-    [Authorize(Roles = "staff")]
+
     public class CoursesController : Controller
     {
         public ApplicationDbContext _context;

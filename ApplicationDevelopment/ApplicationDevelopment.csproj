@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminsController.cs" />
     <Compile Include="Controllers\CourseCategoriesController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -183,6 +184,14 @@
     <Compile Include="Migrations\202110161528459_CreateCategoryTable1.Designer.cs">
       <DependentUpon>202110161528459_CreateCategoryTable1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110161540415_CreateStaffTable.cs" />
+    <Compile Include="Migrations\202110161540415_CreateStaffTable.Designer.cs">
+      <DependentUpon>202110161540415_CreateStaffTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110161543399_CreateTrainerTable.cs" />
+    <Compile Include="Migrations\202110161543399_CreateTrainerTable.Designer.cs">
+      <DependentUpon>202110161543399_CreateTrainerTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -190,9 +199,14 @@
     <Compile Include="Models\CourseCategory.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Staff.cs" />
+    <Compile Include="Models\Trainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Utils\Role.cs" />
     <Compile Include="ViewModels\CourseCategoriesViewModels.cs" />
+    <Compile Include="ViewModels\StaffAccountViewModels.cs" />
+    <Compile Include="ViewModels\TrainerAccountViewModels.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -256,10 +270,15 @@
     <Content Include="Views\Courses\CourseIndex.cshtml" />
     <Content Include="Views\Courses\CourseCreate.cshtml" />
     <Content Include="Views\Courses\CourseEdit.cshtml" />
+    <Content Include="Views\Admins\IndexStaff.cshtml" />
+    <Content Include="Views\Admins\CreateStaffAccount.cshtml" />
+    <Content Include="Views\Admins\EditStaffAccount.cshtml" />
+    <Content Include="Views\Admins\IndexTrainer.cshtml" />
+    <Content Include="Views\Admins\CreateTrainerAccount.cshtml" />
+    <Content Include="Views\Admins\EditTrainerAccount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Admins\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -280,6 +299,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110161528459_CreateCategoryTable1.resx">
       <DependentUpon>202110161528459_CreateCategoryTable1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110161540415_CreateStaffTable.resx">
+      <DependentUpon>202110161540415_CreateStaffTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110161543399_CreateTrainerTable.resx">
+      <DependentUpon>202110161543399_CreateTrainerTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
